@@ -2,3 +2,24 @@
   <strong>League:</strong>
   <%= @league.name %>
 </p>
+<p>
+  <strong>Created by:</strong>
+  <%= User.find(@league.user_id).username %>
+</p>
+
+<p>
+<strong>Teams</strong>
+  <% @league.teams.each do |team| %>
+  <p>
+    <strong>Team:</strong>
+    <%= link_to team.name team_path %>
+  </p>
+ 
+  <p>
+    <strong>Race:</strong>
+    <%= team.race %>
+  </p>
+<% end %>
+</p>
+
+<p><%= link_to 'Add Team', new_league_team_path(@league.id) %></p>
