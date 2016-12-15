@@ -1,0 +1,20 @@
+<h1>New Team</h1>
+
+<p>Adding team in league <%= League.find(params[:league_id]).name%></p>
+
+<%= simple_form_for @team do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>  
+  <p>
+    <%= f.label :race %><br>
+    <%= f.text_field :race %>
+  </p>
+
+ <%= f.input :league_id, :as => :hidden, :input_html => { :value => params[:league_id] } %>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
