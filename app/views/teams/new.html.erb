@@ -1,6 +1,7 @@
 <h1>New Team</h1>
 
-<p>Adding team in league <%= League.find(params[:league_id]).name%></p>
+<% league = League.find(params[:league_id]) %></p>
+<p>Adding team in league <%= link_to league.name, league_path(league.id) %></p>
 
 <%= simple_form_for @team do |f| %>
   <p>
@@ -8,8 +9,7 @@
     <%= f.text_field :name %>
   </p>  
   <p>
-    <%= f.label :race %><br>
-    <%= f.text_field :race %>
+    <%= f.input :race, collection: races, selected: 1 %>
   </p>
 
  <%= f.input :league_id, :as => :hidden, :input_html => { :value => params[:league_id] } %>

@@ -1,18 +1,18 @@
-<p>
-  <strong>League:</strong>
-  <%= @league.name %>
-</p>
+<div class="leagueName">
+  <h2><%= @league.name %></h2>
+</div>
 <p>
   <strong>Created by:</strong>
   <%= User.find(@league.user_id).username %>
 </p>
 
-<p>
-<strong>Teams</strong>
+<div>
+<h3>Teams</h3>
+
   <% @league.teams.each do |team| %>
   <p>
     <strong>Team:</strong>
-    <%= link_to team.name team_path %>
+    <%= link_to team.name, team_path(team.id) %>
   </p>
  
   <p>
@@ -20,6 +20,7 @@
     <%= team.race %>
   </p>
 <% end %>
-</p>
+
+</div>
 
 <p><%= link_to 'Add Team', new_league_team_path(@league.id) %></p>

@@ -1,0 +1,50 @@
+Skaven:
+  reroll: 60
+  star players: []
+  Lineman:
+    quantity: 0-16
+    MA: 7
+    ST: 3
+    AG: 3
+    AV: 7
+    cost: 50
+    skills: 
+    normal: G
+    double : [A, S, P, M]
+  Thrower:
+    quantity: 0-2
+    MA: 7
+    ST: 3
+    AG: 3
+    AV: 7
+    cost: 70
+    skills: [Pass, Sure Hands]
+    normal: [G, P]
+    double : [A, S, M]
+Human:
+  reroll: 50
+  star players: [Griff, Morg]
+  Lineman:
+    quantity: 0-16
+    MA: 6
+    ST: 3
+    AG: 3
+    AV: 8
+    cost: 50
+    skills: 
+    normal: G
+    double : [A, S, P]
+  Thrower:
+    quantity: 0-2
+    MA: 6
+    ST: 3
+    AG: 3
+    AV: 8
+    cost: 70
+    skills: [Pass, Sure Hands]
+    normal: [G, P]
+    double : [A, S]
+Chaos:
+Orcs:
+
+

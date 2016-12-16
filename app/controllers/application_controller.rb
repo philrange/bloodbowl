@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+def application_name 
+  "Blood Bowl League Manager"
+end
+
   protected
 
   def configure_permitted_parameters

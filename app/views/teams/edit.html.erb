@@ -1,0 +1,7 @@
+<h1>Edit Team</h1>
+
+<% team = Team.find(params[:id]) %>
+<% league = League.find(team.league_id) %>
+
+<p>Editing team <%= link_to team.name, team_path(team.id) %></p>
+<p>Editing team in league <%= link_to league.name, league_path(league.id) %></p>
