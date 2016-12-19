@@ -1,0 +1,18 @@
+<% league = League.find(@team.league_id) %>
+
+<div>
+  <strong>League</strong>
+  <%= link_to league.name, league_path(league.id) %>
+</div>
+<div>
+  <strong>Race:</strong>
+  <%= @team.race %>
+</div>
+<div>
+  <strong>Rerolls:</strong>
+  <%= @team.rerolls %>
+</div>
+<div>
+  <strong>Remaining Budget:</strong>
+  <%= @team.budget %>
+ </div>

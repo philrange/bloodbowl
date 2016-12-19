@@ -4,14 +4,20 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :leagues do
-
-    resources :teams
+    resources :teams do
+      resources :players
+    end
+    resources :results
   end
 
 resources :teams
+resources :players
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  get "teams/:id/buy_team_reroll" => "teams#buy_reroll", as: "buy_team_reroll"
+  get "teams/:id/sell_team_reroll" => "teams#sell_reroll", as: "sell_team_reroll"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

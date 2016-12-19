@@ -17,22 +17,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><%= controller.application_name %></a>
+          <div class="navbar-brand">
+            <%= controller.application_name %>
+          </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-    <!--       <ul class="nav navbar-nav">
-           
-            <li>Item</li>
-            <li>Item2</li>
-            
-          </ul> -->
           <ul class="nav navbar-nav pull-right">
-           
+              
+            <li>         
+              <%= link_to root_path do %>
+                <span class="glyphicon glyphicon-home"></span>
+              <% end %>
+            </li>
             <%= render 'devise/menu/registration_items' %>
             <%= render 'devise/menu/login_items' %>
             
-          </ul>
-        </li>
           </ul>
          
         </div><!--/.nav-collapse -->
@@ -41,11 +40,24 @@
 
   <div class="container-fluid">
 	  <div class="container-left-padding">
+
+<!-- display flash alerts -->
+    <% flash.each do |type, msg| %>
+    <% alertType = type %>
+      <% if type == "notice" %>
+        <% alertType = "success" %>
+      <% elsif type == "alert" %>
+        <% alertType = "danger" %>
+      <% end %>
+      <div class='alert alert-<%= "#{alertType}" %>'>
+      <a href="#" class="close" data-dismiss="alert">&#215;</a>
+          <%= msg %>
+      </div>
+    <% end %>
+<!-- /display flash alerts -->
+
 		  <%= yield %>
     </div>
-
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
 	</div>
 </body>
 </html>

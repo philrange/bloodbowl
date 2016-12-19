@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213205930) do
+ActiveRecord::Schema.define(version: 20161218222008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,38 @@ ActiveRecord::Schema.define(version: 20161213205930) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.string   "position"
+    t.integer  "cost"
+    t.integer  "MA"
+    t.integer  "ST"
+    t.integer  "AG"
+    t.integer  "AV"
+    t.integer  "quantity"
+    t.text     "skills"
+    t.text     "normal"
+    t.text     "double"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
+
+  create_table "results", force: :cascade do |t|
+    t.date     "match_date"
+    t.integer  "home_team_id"
+    t.integer  "home_team_score"
+    t.integer  "away_team_id"
+    t.integer  "away_team_score"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "league_id"
+  end
+
+  add_index "results", ["league_id"], name: "index_results_on_league_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.string   "race"
@@ -30,6 +62,7 @@ ActiveRecord::Schema.define(version: 20161213205930) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "rerolls"
   end
 
   add_index "teams", ["league_id"], name: "index_teams_on_league_id", using: :btree
@@ -54,6 +87,8 @@ ActiveRecord::Schema.define(version: 20161213205930) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "leagues", "users"
+  add_foreign_key "players", "teams"
+  add_foreign_key "results", "leagues"
   add_foreign_key "teams", "leagues"
   add_foreign_key "teams", "users"
 end

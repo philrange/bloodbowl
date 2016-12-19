@@ -1,0 +1,29 @@
+<div class='players'>
+	<h4>Players:</h4>
+	<table>
+		<tr>
+			<th>#</th><th>Name</th><th>Position</th><th>Cost</th><th>MA</th><th>ST</th><th>AG</th><th>AV</th><th>Skills</th>
+			<% if edit %>
+			<th>Sell</th>
+			<% end %>
+		</tr>
+		<% squad_number = 1 %>
+		<% team.players.each do |player| %>
+		<tr>
+			<td><%= squad_number %></td>
+			<td><%= player.name %></td>
+			<td><%= player.position %></td>
+			<td><%= player.cost %></td>
+			<td><%= player.MA %></td>
+			<td><%= player.ST %></td>
+			<td><%= player.AG %></td>
+			<td><%= player.AV %></td>
+			<td><%= player.skills_array != nil ? player.skills_array.join(', ') : '-' %></td>
+			<% if edit %>
+			<td><%= link_to 'X', player_path(player.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<% end %>
+		</tr>
+		<% squad_number += 1 %>
+		<% end %>
+	</table>
+</div>

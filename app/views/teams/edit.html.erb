@@ -1,7 +1,42 @@
-<h1>Edit Team</h1>
+<% @team = Team.find(params[:id]) %>
 
-<% team = Team.find(params[:id]) %>
-<% league = League.find(team.league_id) %>
+<div><h1>Editing team <%= link_to @team.name, team_path %></h1></div>
 
-<p>Editing team <%= link_to team.name, team_path(team.id) %></p>
-<p>Editing team in league <%= link_to league.name, league_path(league.id) %></p>
+<%= render 'teams/details', team: @team %>
+<%= render 'teams/current_players', team: @team, edit: true %>
+
+
+<p>
+<h4>Eligible Players:</h4>
+  <% eligible_players(@team.race).each do |position, player| %>
+    <%= position %>
+    <%= player %>
+    <br>
+  <% end %>
+  <br><br>
+</p>
+
+<p>
+
+<%= simple_form_for Player.new do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>  
+  <p>
+    <%= f.input :position, collection: positions(@team.race), selected: 1 %>
+  </p>
+
+  <%= f.input :team_id, :as => :hidden, :input_html => { :value => @team.id } %>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</p>
+
+<p>
+
+Rerolls (<%= @team.reroll_cost %> each) <%= link_to "Buy", buy_team_reroll_path %> <%= link_to "Sell", sell_team_reroll_path %>
+
+</p>

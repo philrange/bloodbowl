@@ -1,50 +1,115 @@
 Skaven:
   reroll: 60
   star players: []
-  Lineman:
-    quantity: 0-16
-    MA: 7
-    ST: 3
-    AG: 3
-    AV: 7
-    cost: 50
-    skills: 
-    normal: G
-    double : [A, S, P, M]
-  Thrower:
-    quantity: 0-2
-    MA: 7
-    ST: 3
-    AG: 3
-    AV: 7
-    cost: 70
-    skills: [Pass, Sure Hands]
-    normal: [G, P]
-    double : [A, S, M]
-Human:
+  players:
+    Lineman:
+      quantity: 16
+      MA: 7
+      ST: 3
+      AG: 3
+      AV: 7
+      cost: 50
+      skills: 
+      normal: G
+      double: [A, S, P, M]
+    Thrower:
+      quantity: 2
+      MA: 7
+      ST: 3
+      AG: 3
+      AV: 7
+      cost: 70
+      skills: [Pass, Sure Hands]
+      normal: [G, P]
+      double: [A, S, M]    
+    Gutter Runner:
+      quantity: 4
+      MA: 9
+      ST: 2
+      AG: 4
+      AV: 7
+      cost: 80
+      skills: [Dodge]
+      normal: [G, A]
+      double: [S, P, M]    
+    Blitzer:
+      quantity: 2
+      MA: 7
+      ST: 3
+      AG: 3
+      AV: 8
+      cost: 90
+      skills: [Block]
+      normal: [G, S]
+      double: [A, P, M]    
+    Rat Ogre:
+      quantity: 1
+      MA: 6
+      ST: 5
+      AG: 2
+      AV: 8
+      cost: 150
+      skills: [Loner, Frenzy, Mighty Blow, Prehensile Tail, Wild Animal]
+      normal: [S]
+      double: [G, A, P, M]
+Humans:
   reroll: 50
   star players: [Griff, Morg]
-  Lineman:
-    quantity: 0-16
-    MA: 6
-    ST: 3
-    AG: 3
-    AV: 8
-    cost: 50
-    skills: 
-    normal: G
-    double : [A, S, P]
-  Thrower:
-    quantity: 0-2
-    MA: 6
-    ST: 3
-    AG: 3
-    AV: 8
-    cost: 70
-    skills: [Pass, Sure Hands]
-    normal: [G, P]
-    double : [A, S]
+  players:
+    Lineman:
+      quantity: 16
+      MA: 6
+      ST: 3
+      AG: 3
+      AV: 8
+      cost: 50
+      skills: 
+      normal: G
+      double: [A, S, P]
+    Thrower:
+      quantity: 2
+      MA: 6
+      ST: 3
+      AG: 3
+      AV: 8
+      cost: 70
+      skills: [Pass, Sure Hands]
+      normal: [G, P]
+      double: [A, S]
 Chaos:
+  reroll: 60
+  star players: []
+  players:
+    Beastman:
+      quantity: 16
+      MA: 6
+      ST: 3
+      AG: 3
+      AV: 8
+      cost: 60
+      skills: [Horns]
+      normal: [G, S, M]
+      double: [A, P]
+    Chaos Warrior:
+      quantity: 4
+      MA: 5
+      ST: 4
+      AG: 3
+      AV: 9
+      cost: 100
+      skills: [Pass, Sure Hands]
+      normal: [G, S, M]
+      double: [A, P]
+    Minotaur:
+      quantity: 2
+      MA: 5
+      ST: 5
+      AG: 2
+      AV: 8
+      cost: 150
+      skills: [Loner, Frenzy, Horns, Mighty Blow, Thick Skull, Wild Animal]
+      normal: [S, M]
+      double: [G, A, P]
 Orcs:
 
 

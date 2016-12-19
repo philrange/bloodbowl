@@ -1,11 +1,11 @@
-<p>
-  <strong>Team:</strong>
-  <%= @team.name %>
-</p>
-<p>
-  <strong>Race:</strong>
-  <%= @team.race %>
-</p>
+
+<div>
+  <div class='teamLabel'><h1><%= @team.name %></h1></div>
+  <div class='ownerLabel'>Owned by <%= @team.user.username %></div>
+</div>
+
+<%= render 'teams/details', team: @team %>
+<%= render 'teams/current_players', team: @team, edit: false %>
 
 
  <% if user_signed_in? && current_user.id == @team.user_id %>
@@ -15,5 +15,5 @@
  <% end %>
 
  <div>
- <%= link_to 'Back to ' + League.find(@team.league_id).name + ' League', league_path(@team.league_id) %>
+ <%= link_to 'Back to ' + @team.league.name + ' League', league_path(@team.league_id) %>
  </div> 

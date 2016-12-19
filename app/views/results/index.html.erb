@@ -1,0 +1,6 @@
+<% league = League.find(params[:league_id]) %>
+<h1><%= link_to league.name, league_path(league.id) %> Results</h1>
+
+<% @results.each do |result| %>
+  <div><%= render 'results/result', result: result %></div>
+<% end %>

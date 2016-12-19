@@ -7,20 +7,36 @@
 </p>
 
 <div>
-<h3>Teams</h3>
-
-  <% @league.teams.each do |team| %>
-  <p>
-    <strong>Team:</strong>
-    <%= link_to team.name, team_path(team.id) %>
-  </p>
- 
-  <p>
-    <strong>Race:</strong>
-    <%= team.race %>
-  </p>
+<h5>Latest Results</h5>
+	<% latest_results(@league.id).each do |result| %>
+  <div><%= render 'results/result', result: result %></div>
 <% end %>
-
 </div>
 
+<div class='players'>
+	<h4>Teams:</h4>
+	<table>
+		<tr>
+			<th>Name</th><th>Race</th><th>Owner</th><th>Played</th><th>Won</th><th>Drawn</th><th>Lost</th><th>Points</th>
+		</tr>
+
+		<% teams_with_points = @league.teams.map{|team| CalculatePoints.new(@league, team).call} %>
+		<% teams_with_points.sort{|x, y| y.points <=> x.points }.each do |points| %>
+		<tr>
+			<td><%= link_to points.team.name, team_path(points.team.id) %></td>
+			<td><%= points.team.race %></td>
+			<td><%= points.team.user.username %></td>
+			<td><%= points.played %></td>
+			<td><%= points.won %></td>
+			<td><%= points.drawn %></td>
+			<td><%= points.lost %></td>
+			<td><%= points.points %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+
+<p><%= link_to 'Results', league_results_path(@league.id) %></p>
 <p><%= link_to 'Add Team', new_league_team_path(@league.id) %></p>
+<p><%= link_to 'Add Result', new_league_result_path(@league.id) %></p>

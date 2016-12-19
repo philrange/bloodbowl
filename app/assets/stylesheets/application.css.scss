@@ -21,13 +21,40 @@
 body { padding-top: 70px; }
 
 .non-link {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	line-height: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 20px;
 }
+
 
 .container-left-padding {
   padding-left: 30px;
+}
+
+.players, .teams {
+
+  font-size: 18px;
+
+  th, td {
+    padding: 8px;
+  }
+
+  th {
+      background-color: #4CAF50;
+      color: #fdfdfd;
+  }
+
+  tr {
+    background-color: #f8f8f8
+  }
+
+  tr:nth-child(even) {
+    background-color: #f0f0f0
+  }
+
+  tr:hover {
+    background-color: #dddddd
+  }
 }
 
 //navbar colours
@@ -41,7 +68,7 @@ $colHighlight   : #ffa500;
   .navbar-brand {
     color: $colDefault;
     &:hover, &:focus { 
-      color: $colHighlight; }}
+      color: $colDefault; }}
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
