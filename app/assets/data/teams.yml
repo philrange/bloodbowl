@@ -66,6 +66,16 @@ Humans:
       skills: 
       normal: G
       double: [A, S, P]
+    Catcher:
+      quantity: 4
+      MA: 8
+      ST: 2
+      AG: 3
+      AV: 7
+      cost: 70
+      skills: [Catch, Dodge]
+      normal: [G, A]
+      double: [S, P]
     Thrower:
       quantity: 2
       MA: 6
@@ -76,6 +86,26 @@ Humans:
       skills: [Pass, Sure Hands]
       normal: [G, P]
       double: [A, S]
+    Blitzer:
+      quantity: 4
+      MA: 7
+      ST: 3
+      AG: 3
+      AV: 8
+      cost: 90
+      skills: [Block]
+      normal: [G, S]
+      double: [A, P]
+    Ogre:
+      quantity: 1
+      MA: 5
+      ST: 5
+      AG: 2
+      AV: 9
+      cost: 140
+      skills: [Loner, Bone-head, Mighty Blow, Thick Skull, Throw Team-Mate]
+      normal: [S]
+      double: [G, A, P]
 Chaos:
   reroll: 60
   star players: []
@@ -111,5 +141,67 @@ Chaos:
       normal: [S, M]
       double: [G, A, P]
 Orcs:
-
+  reroll: 60
+  star players: []
+  players:
+    Lineman:
+      quantity: 16
+      MA: 5
+      ST: 3
+      AG: 3
+      AV: 9
+      cost: 50
+      skills: []
+      normal: [G]
+      double: [A, S, P]
+    Goblin:
+      quantity: 4
+      MA: 6
+      ST: 2
+      AG: 3
+      AV: 7
+      cost: 40
+      skills: [Right Stuff, Dodge, Stunty]
+      normal: [A]
+      double: [G, S, P]
+    Thrower:
+      quantity: 2
+      MA: 5
+      ST: 3
+      AG: 3
+      AV: 8
+      cost: 70
+      skills: [Sure Hands, Pass]
+      normal: [G, P]
+      double: [A, S]
+    Black Orc Blocker:
+      quantity: 4
+      MA: 4
+      ST: 4
+      AG: 2
+      AV: 9
+      cost: 80
+      skills: []
+      normal: [G, S]
+      double: [A, P]
+    Blitzer:
+      quantity: 4
+      MA: 6
+      ST: 3
+      AG: 3
+      AV: 9
+      cost: 80
+      skills: [Block]
+      normal: [G, S]
+      double: [A, P]
+    Troll:
+      quantity: 1
+      MA: 4
+      ST: 5
+      AG: 1
+      AV: 9
+      cost: 110
+      skills: [Loner, Always Hungry, Mighty Blow, Really Stupid, Regeneration, Throw Team-Mate]
+      normal: [S]
+      double: [G, A, P]
 
