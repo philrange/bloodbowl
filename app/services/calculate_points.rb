@@ -24,6 +24,7 @@ class CalculatePoints
 		end
 
 		@points = (@won * 3) + @drawn
+		# @points = @played > 0 ? @won.fdiv(@played) : 0
 
 		return Points.new(@team, @played, @won, @drawn, @lost, @points)
 	end
