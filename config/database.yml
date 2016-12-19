@@ -83,6 +83,3 @@ test:
 #
 production:
   <<: *default
-  database: bloodbowl_production
-  username: bloodbowl
-  password: <%= ENV['BLOODBOWL_DATABASE_PASSWORD'] %>

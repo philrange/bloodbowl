@@ -32,6 +32,8 @@ gem 'simple_form', '~> 3.3.1'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
 
+gem 'puma'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
