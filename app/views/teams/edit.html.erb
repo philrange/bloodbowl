@@ -2,7 +2,30 @@
 
 <div><h1>Editing team <%= link_to @team.name, team_path %></h1></div>
 
-<%= render 'teams/details', team: @team %>
+<div class='details'>
+  <%= render 'teams/details', team: @team %>
+</div>
+
+<div>
+
+Rerolls (<%= @team.reroll_cost %> each) 
+<%= link_to "Buy", buy_item_path(:item => "rerolls"), data: {item: 'rerolls'}, class: "item", remote: true %> 
+<%= link_to "Sell", sell_item_path(:item => "rerolls"), data: {item: 'rerolls'}, class: "item", remote: true %>
+<br>Fan Factor (10 each) 
+<%= link_to "Buy", buy_item_path(:item => "fanfactor"), data: {item: 'fanfactor'}, class: "item", remote: true %> 
+<%= link_to "Sell", sell_item_path(:item => "fanfactor"), data: {item: 'fanfactor'}, class: "item", remote: true %> 
+<br>Assistant Coaches (10 each) 
+<%= link_to "Buy", buy_item_path(:item => "assistantcoaches"), data: {item: 'assistantcoaches'}, class: "item", remote: true %>
+<%= link_to "Sell", sell_item_path(:item => "assistantcoaches"), data: {item: 'assistantcoaches'}, class: "item", remote: true %>
+<br>Cheerleaders (10 each) 
+<%= link_to "Buy", buy_item_path(:item => "cheerleaders"), data: {item: 'cheerleaders'}, class: "item", remote: true %>
+<%= link_to "Sell", sell_item_path(:item => "cheerleaders"), data: {item: 'cheerleaders'}, class: "item", remote: true %>
+<br>Apothecary (50) 
+<%= link_to "Buy/Sell", toggle_item_path(:item => "apothecary"), data: {item: 'apothecary'}, class: "item", remote: true %>
+<br>Team Wizard (150) 
+<%= link_to "Buy/Sell", toggle_item_path(:item => "wizard"), data: {item: 'wizard'}, class: "item", remote: true %>
+</div>
+
 <%= render 'teams/current_players', team: @team, edit: true %>
 
 
@@ -18,6 +41,7 @@
 
 <p>
 
+<p><h3>Add Player</h3></p>
 <%= simple_form_for Player.new do |f| %>
   <p>
     <%= f.label :name %><br>
@@ -35,8 +59,8 @@
 <% end %>
 </p>
 
+
 <p>
-
-Rerolls (<%= @team.reroll_cost %> each) <%= link_to "Buy", buy_team_reroll_path %> <%= link_to "Sell", sell_team_reroll_path %>
-
+ <%= link_to "Finalise", finalise_path %>
 </p>
+

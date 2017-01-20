@@ -10,9 +10,34 @@
 </div>
 <div>
   <strong>Rerolls:</strong>
-  <%= @team.rerolls %>
+  <span class="rerolls"><%= @team.rerolls %></span>
 </div>
 <div>
+  <strong>Fan Factor:</strong>
+  <span class="fanfactor"><%= @team.fanfactor %></span>
+</div>
+<div>
+  <strong>Assistant Coaches:</strong>
+  <span class="assistantcoaches"><%= @team.assistantcoaches %></span>
+</div>
+<div>
+  <strong>Cheerleaders:</strong>
+  <span class="cheerleaders"><%= @team.cheerleaders %></span>
+</div>
+<div>
+  <strong>Apothecary:</strong>
+  <span class="apothecary"><%= @team.apothecary %></span>
+</div>
+<div>
+  <strong>Team Wizard:</strong>
+  <span class="wizard"><%= @team.wizard %></span>
+</div>
+<div>
+<% if @team.finalised%>
+  <strong>Treasury:</strong>
+  <%= @team.treasury %>
+<% else %>
   <strong>Remaining Budget:</strong>
-  <%= @team.budget %>
+  <span class="budget"><%= @team.budget %></span>
+  <% end %>
  </div>

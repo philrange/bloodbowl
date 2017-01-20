@@ -16,8 +16,12 @@ resources :players
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  get "teams/:id/buy_team_reroll" => "teams#buy_reroll", as: "buy_team_reroll"
-  get "teams/:id/sell_team_reroll" => "teams#sell_reroll", as: "sell_team_reroll"
+  get "teams/:id/buy_item/:item" => "teams#buy_item", as: "buy_item"
+  get "teams/:id/sell_item/:item" => "teams#sell_item", as: "sell_item"
+  get "teams/:id/toggle_item/:item" => "teams#toggle_item", as: "toggle_item"
+
+  get "teams/:id/finalise" => "teams#finalise", as: "finalise"
+  get "teams/:id/undo_finalise" => "teams#undo_finalise", as: "undo_finalise"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

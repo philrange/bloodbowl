@@ -38,5 +38,10 @@
 
 
 <p><%= link_to 'Results', league_results_path(@league.id) %></p>
-<p><%= link_to 'Add Team', new_league_team_path(@league.id) %></p>
-<p><%= link_to 'Add Result', new_league_result_path(@league.id) %></p>
+<% if current_user != nil %>
+	<% if @league.teams.map{|team| team.user_id}.include?(current_user.id) %>
+		<p><%= link_to 'Add Result', new_league_result_path(@league.id) %></p>
+	<% else %>
+		<p><%= link_to 'Add Team', new_league_team_path(@league.id) %></p>
+	<% end %>
+<% end %>

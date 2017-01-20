@@ -127,7 +127,7 @@ Chaos:
       AG: 3
       AV: 9
       cost: 100
-      skills: [Pass, Sure Hands]
+      skills: []
       normal: [G, S, M]
       double: [A, P]
     Minotaur:

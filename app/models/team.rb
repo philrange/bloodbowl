@@ -6,6 +6,7 @@ class Team < ActiveRecord::Base
 
     def init
       self.rerolls  ||= 0           #will set the default value only if it's nil
+      self.fanfactor  ||= 0           
     end
 	
 	def user
@@ -22,6 +23,11 @@ class Team < ActiveRecord::Base
 		end
 
 		cost += rerolls * reroll_cost
+		cost += fanfactor * 10
+		cost += assistantcoaches * 10
+		cost += cheerleaders * 10
+		cost += apothecary ? 50 : 0
+		cost += wizard ? 150 : 0
 
 		return budget - cost
 	end
@@ -39,7 +45,4 @@ class Team < ActiveRecord::Base
 		1000 - budget
 	end
 
-	def buy_reroll
-		rerolls = rerolls + 1
-	end
 end

@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
 
+  respond_to :js, :html, :json
+
   before_action :authenticate_user!, :except => [:show, :index]
   before_filter :require_permission, only: :edit
 
@@ -19,6 +21,13 @@ def show
   @team = Team.find(params[:id])
 end
 
+def edit
+  @team = Team.find(params[:id])
+  if @team.finalised
+    redirect_to team_path
+  end
+end
+
 def new
  @team = Team.new
 end
@@ -31,18 +40,57 @@ def create
  redirect_to @team
 end
 
-def buy_reroll
-  update_reroll(1)
-end
-
-def sell_reroll
-  update_reroll(-1)
-end
-
-def update_reroll(amount)
+def finalise
   show
-  @team.update(rerolls: @team.rerolls + amount)
+  if (@team.budget < 0)
+    flash[:alert] = 'You\'re over budget. Can\'t finalise team.'
+    redirect_to edit_team_path
+  else
+    @team.update_attribute("treasury", @team.budget)
+    @team.update_attribute("finalised", true)
+    redirect_to team_path
+  end
+end
+
+def undo_finalise
+  toggle_boolean_field("finalised")
   redirect_to edit_team_path
+end
+
+def buy_item
+  @new_amount = update_field(params[:item], 1)
+  respond_to do |format|
+    format.js
+  end
+end
+
+def sell_item
+  @new_amount = update_field(params[:item], -1)
+  respond_to do |format|
+    format.js
+  end
+end
+
+def toggle_item
+  @new_value = toggle_boolean_field(params[:item])
+  respond_to do |format|
+    format.js
+  end
+end
+
+def update_field(field, amount)
+  show
+  current_amount = @team[field] || 0
+  new_amount = current_amount + amount
+  @team.update_attribute(field, new_amount)
+  return new_amount
+end
+
+def toggle_boolean_field(field)
+  show
+  current_value = @team[field] || false
+  @team.update_attribute(field, !current_value)
+  return !current_value
 end
 
 private

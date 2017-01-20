@@ -1,0 +1,7 @@
+
+$(".item")
+  .on("ajax:success",function(event,data,status,xhr) {
+    var item = $(this).data("item");
+  	console.log(item);
+    $('.' + item).text("<%= @new_amount %>");
+  });

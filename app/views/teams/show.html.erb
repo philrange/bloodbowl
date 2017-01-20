@@ -8,10 +8,16 @@
 <%= render 'teams/current_players', team: @team, edit: false %>
 
 
- <% if user_signed_in? && current_user.id == @team.user_id %>
+ <% if user_signed_in? && current_user.id == @team.user_id%>
+ 	
  <div>
- <%= link_to 'Edit Team', edit_team_path %>
+ 	<% if !@team.finalised %>
+ 		<%= link_to 'Edit Team', edit_team_path %>
+ 	<% else %>
+ 		<%= link_to 'Undo Finalise', undo_finalise_path %>
+ 	<% end %>
  </div>
+
  <% end %>
 
  <div>
