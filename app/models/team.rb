@@ -7,6 +7,10 @@ class Team < ActiveRecord::Base
     def init
       self.rerolls  ||= 0           #will set the default value only if it's nil
       self.fanfactor  ||= 0           
+      self.assistantcoaches  ||= 0           
+      self.cheerleaders  ||= 0           
+      self.apothecary  ||= false           
+      self.wizard  ||= false           
     end
 	
 	def user
